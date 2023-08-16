@@ -4,11 +4,13 @@ import Landing from "./pages/Landing";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Todo from "./pages/Todo";
+import Globalstyle from "./GlobalStyle";
 
 function App() {
   return (
     <>
       <Layout>
+        <Globalstyle />
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/signin" element={<SignIn />} />

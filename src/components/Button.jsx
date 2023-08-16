@@ -1,21 +1,45 @@
 import React from "react";
-import { styled } from "styled-components";
-import { useNavigate } from "react-router-dom";
+import { styled, css } from "styled-components";
 
-const Button = ({ type, children }) => {
-  const navigate = useNavigate();
-  const handleStart = () => {
-    console.log("dmdld");
-    navigate("/signin");
-  };
-
+const Button = ({ type, children, color, onClick }) => {
   return (
-    <ButtonWrap onClick={handleStart} type={type ? "button" : "submit"}>
+    <ButtonWrap
+      type={type ? "button" : "submit"}
+      color={color}
+      onClick={onClick}
+    >
       {children}
     </ButtonWrap>
   );
 };
 
-const ButtonWrap = styled.button``;
+const ButtonWrap = styled.button`
+  width: 100%;
+  padding: 20px 12px;
+  background-color: #3165ff;
+  border-radius: 6px;
+  color: white;
+  font-size: 16px;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: #4977ff;
+  }
+
+  &:disabled {
+    background-color: #bfcfff;
+  }
+
+  ${(props) =>
+    props.color &&
+    css`
+      background-color: #f3f3f3;
+      color: black;
+
+      &:hover {
+        background-color: #ebebeb;
+      }
+    `}
+`;
 
 export default Button;
