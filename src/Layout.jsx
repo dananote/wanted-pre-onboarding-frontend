@@ -16,6 +16,7 @@ const LayoutWrap = styled.div`
   h1 {
     font-size: 20px;
     font-weight: 900;
+    margin-bottom: 40px;
   }
 `;
 

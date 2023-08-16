@@ -15,7 +15,7 @@ const Button = ({ type, children, color, onClick }) => {
 
 const ButtonWrap = styled.button`
   width: 100%;
-  padding: 20px 12px;
+  padding: 16px 12px;
   background-color: #3165ff;
   border-radius: 6px;
   color: white;

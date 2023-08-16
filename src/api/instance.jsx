@@ -21,3 +21,5 @@ const instance = () => {
 
   return { PostInstance, GetInstance };
 };
+
+export default instance;
