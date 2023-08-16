@@ -10,6 +10,4 @@ const Landing = () => {
   );
 };
 
-const LandingLayout = styled.article``;
-
 export default Landing;
