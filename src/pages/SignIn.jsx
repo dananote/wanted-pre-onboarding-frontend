@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Form from "../components/Form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 
 const SignIn = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const token = window.localStorage.getItem("token");
+
+    if (token) navigate("/todo");
+  }, []);
   return (
     <div>
       <h1>로그인</h1>

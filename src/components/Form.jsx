@@ -37,7 +37,7 @@ const Form = ({ page }) => {
       } else if (page === "signin") {
         PostInstance.post("/auth/signin", userData)
           .then((res) => {
-            console.log(res);
+            window.localStorage.setItem("token", res.data.access_token);
             navigate("/todo");
           })
           .catch((error) => {
@@ -69,6 +69,8 @@ const Form = ({ page }) => {
   };
 
   const handleInput = (e) => {
+    setEmailError("");
+    setPasswordError("");
     const { type, value } = e.target;
 
     setUserData((prev) => ({
@@ -98,6 +100,15 @@ const Form = ({ page }) => {
       <Button
         children={page === "signin" ? "로그인" : "회원가입"}
         onClick={handleError}
+        data={page === "signin" ? "signin-button" : "signup-button"}
+        disabled={
+          eamilError === "" &&
+          passwordError === "" &&
+          userData.email !== "" &&
+          userData.password !== ""
+            ? false
+            : true
+        }
       />
     </FormWrap>
   );

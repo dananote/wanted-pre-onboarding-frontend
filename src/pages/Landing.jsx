@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { styled } from "styled-components";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
-
 const Landing = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = window.localStorage.getItem("token");
+
+    if (token) navigate("/todo");
+  }, []);
 
   const handleStart = (e) => {
     if (e.target.innerText === "로그인") {

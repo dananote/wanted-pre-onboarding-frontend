@@ -2,7 +2,7 @@ import axios from "axios";
 
 const instance = () => {
   const BASE_URL = "https://www.pre-onboarding-selection-task.shop/";
-  const token = "test";
+  const token = window.localStorage.getItem("token");
 
   const PostInstance = axios.create({
     baseURL: BASE_URL,

@@ -1,12 +1,14 @@
 import React from "react";
 import { styled, css } from "styled-components";
 
-const Button = ({ type, children, color, onClick }) => {
+const Button = ({ type, children, color, onClick, data, disabled }) => {
   return (
     <ButtonWrap
       type={type ? "button" : "submit"}
       color={color}
       onClick={onClick}
+      data-testid={data}
+      disabled={disabled}
     >
       {children}
     </ButtonWrap>
